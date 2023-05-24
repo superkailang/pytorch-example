@@ -27,7 +27,7 @@ def generate_benchmark(num_size=[100, 1000, 10000], num_threads=4):
         for thread in range(num_threads):
             n_thread = thread + 1
             sub_layer = "{}_{}".format(size, n_thread)
-            t0 = benchmark.Timer(
+            t0: benchmark.Measurement = benchmark.Timer(
                 stmt='batched_dot_mul_sum(x, x)',
                 setup='from __main__ import batched_dot_mul_sum',
                 num_threads=n_thread,
@@ -36,7 +36,7 @@ def generate_benchmark(num_size=[100, 1000, 10000], num_threads=4):
                 description='mul',
                 globals={'x': x})
 
-            t1 = benchmark.Timer(
+            t1: benchmark.Measurement = benchmark.Timer(
                 stmt='batched_dot_bmm(x, x)',
                 setup='from __main__ import batched_dot_bmm',
                 num_threads=n_thread,
@@ -44,6 +44,8 @@ def generate_benchmark(num_size=[100, 1000, 10000], num_threads=4):
                 sub_label=sub_layer,
                 description='bmm',
                 globals={'x': x})
+
+            # return result while keeping timer overhead to a minimum
             result.append(t0.blocked_autorange())
             result.append(t1.blocked_autorange())
     return result
