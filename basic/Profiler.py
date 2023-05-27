@@ -14,14 +14,15 @@ profile_schedule = schedule(skip_first=1,
 
 def trace_handler(prof):
     print(prof.key_averages(group_by_stack_n=5).table(sort_by="cpu_time_total", row_limit=10))
-    # prof.export_chrome_trace("trace.json")
+    prof.export_chrome_trace("trace.json")
 
 
 with profile(activities=[ProfilerActivity.CPU],
              schedule=profile_schedule,
              with_stack=True,
              profile_memory=True,
-             record_shapes=True, on_trace_ready=trace_handler) as prof:
+             record_shapes=True,
+             on_trace_ready=torch.profiler.tensorboard_trace_handler('./log/resnet18')) as prof:
     with record_function("model_inference"):
         for i in range(20):
             model(inputs)
