@@ -6,9 +6,35 @@ from .hed import HedDetector
 from .midas import MidasProcessor
 from .mlsd import MLSDProcessor
 from .uniformer import UniformerDetector
+from .lineart import LineArtDetector
+from .lineart_anime import LineArtAnimeDetector
+from .manga_line import MangaLineExtration
+from .leres import LeresPix2Pix
+from .mediapipe_face import MediaPipeFace
+from .normalbae import NormalBaeDetector
+from .pidinet import PidInet
+from .shuffle import Image2MaskShuffleDetector
+from .zoe import ZoeDetector
+from .oneformer import OneformerDetector
 
 __all__ = [
-    UniformerDetector, HedDetector, MLSDProcessor, BinaryDetector, CannyDetector, OpenposeDetector, MidasProcessor
+    UniformerDetector,
+    HedDetector,
+    MLSDProcessor,
+    BinaryDetector,
+    CannyDetector,
+    OpenposeDetector,
+    MidasProcessor,
+    LineArtDetector,
+    LineArtAnimeDetector,
+    MangaLineExtration,
+    LeresPix2Pix,
+    MediaPipeFace,
+    NormalBaeDetector,
+    PidInet,
+    Image2MaskShuffleDetector,
+    ZoeDetector,
+    OneformerDetector
 ]
 #
 #
