@@ -16,6 +16,7 @@ from .pidinet import PidInet
 from .shuffle import Image2MaskShuffleDetector
 from .zoe import ZoeDetector
 from .oneformer import OneformerDetector
+from .denthPose import DenthPoseProcessor
 
 __all__ = [
     UniformerDetector,
@@ -34,7 +35,8 @@ __all__ = [
     PidInet,
     Image2MaskShuffleDetector,
     ZoeDetector,
-    OneformerDetector
+    OneformerDetector,
+    DenthPoseProcessor
 ]
 #
 #
