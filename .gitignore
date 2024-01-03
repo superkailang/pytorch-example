@@ -1,4 +1,15 @@
 */log/
 .idea
 test
+
+*.pkl
+
+*.pyc
+__pycache__/
+*.log
+*.DS_Store
+
 */__pycache__/*
+
+*.png
+*.jpge
